@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *siteUIIameg;
 @property (weak, nonatomic) IBOutlet UILabel *siteName;
 @property (weak, nonatomic) IBOutlet UILabel *siteResponse;
-
+- (void)updateCell:(NSString*)totalBytes withImageName:(NSString*)image;
 @end
 
 NS_ASSUME_NONNULL_END

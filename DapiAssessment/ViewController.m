@@ -15,7 +15,7 @@
 
 //MARK:- URLs array
 NSArray *urls;
-
+NSMutableArray *subLabelARR;
 
 
 @implementation ViewController
@@ -33,10 +33,11 @@ NSArray *urls;
             @"boomsupersonic.com",
             @"twitter.com", nil];
     
+    subLabelARR = [[NSMutableArray alloc] init];
     [self initingNavBar];
 }
 
-
+//MARK:- navigation bar
 - (void)initingNavBar{
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.title = @"Sites";
@@ -45,15 +46,16 @@ NSArray *urls;
     self.navigationItem.rightBarButtonItem = startBtn;
 }
 
-//MARK:- startBtn Tapped
+//MARK:- start Btn Tapped
 
 -(IBAction)startBtnTapped:(id)sender
 {
+    self.navigationItem.rightBarButtonItem = nil;
     [self createGetReusts:0];
 }
 
 
-//MARK:- performe serialBackgroundTask
+//MARK:- performe serial Background Task
 - (void)createGetReusts:(int)requstIndex{
     //data task does not need any GCD cause it runs on diffrent thread as it has complition block
     NSString *baseURL = @"http://www.";
@@ -62,13 +64,26 @@ NSArray *urls;
     dataTask =
     [[[self class] session] dataTaskWithURL:url
                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        
+        if (error == nil){
+            
+            long long  totalContentFileLength = [[NSNumber alloc] initWithFloat:response.expectedContentLength].longLongValue;
+            
+            NSString *displayFileSize = [NSByteCountFormatter stringFromByteCount:totalContentFileLength
+                                                                       countStyle:NSByteCountFormatterCountStyleFile];
+            [subLabelARR addObject: displayFileSize];
+            
+        }else {
+            [subLabelARR addObject:error];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //update UI in main thread.
+            [self.tableView reloadData];
+        });
         // recursive way serialize the requests
         if (requstIndex< [urls count] -1){
             [self createGetReusts:requstIndex + 1];
         }
     }];
-    NSLog(@"%@", dataTask);
     [dataTask resume];
 }
 
@@ -89,7 +104,7 @@ NSArray *urls;
 }
 
 
-//MARK:- Table View Data source
+//MARK:- Table View Data source and delegate 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [urls count];
@@ -101,6 +116,13 @@ NSArray *urls;
     
     SitesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     cell.siteName.text = urls[indexPath.row];
+    
+    if ([subLabelARR count] > 0 && indexPath.row < [subLabelARR count]) {
+        if ([subLabelARR[indexPath.row] isKindOfClass:[NSString class]]) {
+            
+            [cell updateCell:[subLabelARR objectAtIndex:indexPath.row] withImageName:urls[indexPath.row]];
+        }
+    }
     return cell;
 }
 
