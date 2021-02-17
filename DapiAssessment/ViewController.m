@@ -122,6 +122,10 @@ NSMutableArray *subLabelARR;
             
             [cell updateCell:[subLabelARR objectAtIndex:indexPath.row] withImageName:urls[indexPath.row]];
         }
+        else if ([subLabelARR[indexPath.row] isKindOfClass:[NSError class]]) {
+            NSError *error = subLabelARR[indexPath.row];
+            cell.siteResponse.text = [NSString stringWithFormat:@"%ld",(long)error.code];
+        }
     }
     return cell;
 }
