@@ -11,11 +11,27 @@
 
 @end
 
+
+//MARK:- URLs array
+NSArray *urls;
+
+
+
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // URLs array initialization
+    urls = [NSArray arrayWithObjects:
+            @"apple.com",
+            @"spacex.com",
+            @"dapi.co",
+            @"facebook.com",
+            @"microsoft.com",
+            @"amazon.com",
+            @"boomsupersonic.com",
+            @"twitter.com", nil];
+
 }
 
 
