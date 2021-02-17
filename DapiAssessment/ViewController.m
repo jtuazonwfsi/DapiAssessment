@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import "SitesTableViewCell.h"
 
 @interface ViewController ()
 
@@ -31,8 +32,23 @@ NSArray *urls;
             @"amazon.com",
             @"boomsupersonic.com",
             @"twitter.com", nil];
+    
 
 }
 
+//MARK:- Table View Data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [urls count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *cellId = @"SitesCell";
+    
+    SitesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    cell.siteName.text = urls[indexPath.row];
+    return cell;
+}
 
 @end

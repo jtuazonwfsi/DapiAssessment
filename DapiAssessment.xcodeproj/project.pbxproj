@@ -13,6 +13,7 @@
 		59D6041A25DD53EA0028EA66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D6041925DD53EA0028EA66 /* Assets.xcassets */; };
 		59D6041D25DD53EA0028EA66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D6041B25DD53EA0028EA66 /* LaunchScreen.storyboard */; };
 		59D6042025DD53EA0028EA66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D6041F25DD53EA0028EA66 /* main.m */; };
+		59D6043325DD5FFC0028EA66 /* SitesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D6043225DD5FFC0028EA66 /* SitesTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		59D6041C25DD53EA0028EA66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59D6041E25DD53EA0028EA66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59D6041F25DD53EA0028EA66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		59D6043125DD5FFC0028EA66 /* SitesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SitesTableViewCell.h; sourceTree = "<group>"; };
+		59D6043225DD5FFC0028EA66 /* SitesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SitesTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		59D6040C25DD53E90028EA66 /* DapiAssessment */ = {
 			isa = PBXGroup;
 			children = (
+				59D6043025DD5FE20028EA66 /* SitesTableViewCell */,
 				59D6040D25DD53E90028EA66 /* AppDelegate.h */,
 				59D6040E25DD53E90028EA66 /* AppDelegate.m */,
 				59D6041325DD53E90028EA66 /* ViewController.h */,
@@ -69,6 +73,15 @@
 				59D6041F25DD53EA0028EA66 /* main.m */,
 			);
 			path = DapiAssessment;
+			sourceTree = "<group>";
+		};
+		59D6043025DD5FE20028EA66 /* SitesTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				59D6043125DD5FFC0028EA66 /* SitesTableViewCell.h */,
+				59D6043225DD5FFC0028EA66 /* SitesTableViewCell.m */,
+			);
+			path = SitesTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +155,7 @@
 			files = (
 				59D6041525DD53E90028EA66 /* ViewController.m in Sources */,
 				59D6040F25DD53E90028EA66 /* AppDelegate.m in Sources */,
+				59D6043325DD5FFC0028EA66 /* SitesTableViewCell.m in Sources */,
 				59D6042025DD53EA0028EA66 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
