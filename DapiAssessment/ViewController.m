@@ -130,4 +130,8 @@ NSMutableArray *subLabelARR;
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @"CONTENTS";
+}
+
 @end
