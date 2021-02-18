@@ -24,7 +24,7 @@ NSMutableArray *subLabelARR;
     [super viewDidLoad];
     // URLs array initialization
     urls = [NSArray arrayWithObjects:
-            @"apple.lfkjkldsljfslfjs",
+            @"apple.com",
             @"spacex.com",
             @"dapi.co",
             @"facebook.com",
