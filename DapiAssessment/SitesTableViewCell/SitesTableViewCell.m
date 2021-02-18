@@ -38,7 +38,15 @@
             [self.siteUIIameg setImage:[UIImage imageWithData:myData]];
         });
     });
+}
+
+- (void)updateCellWithError:(NSString*)errorCode{
     
+    self.siteResponse.text = errorCode;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.siteUIIameg.hidden = FALSE;
+        [self.siteUIIameg setImage:[UIImage imageNamed:@"failIcon"]];
+    });
 }
 
 @end

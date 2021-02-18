@@ -24,7 +24,7 @@ NSMutableArray *subLabelARR;
     [super viewDidLoad];
     // URLs array initialization
     urls = [NSArray arrayWithObjects:
-            @"apple.com",
+            @"apple.lfkjkldsljfslfjs",
             @"spacex.com",
             @"dapi.co",
             @"facebook.com",
@@ -119,12 +119,11 @@ NSMutableArray *subLabelARR;
     
     if ([subLabelARR count] > 0 && indexPath.row < [subLabelARR count]) {
         if ([subLabelARR[indexPath.row] isKindOfClass:[NSString class]]) {
-            
             [cell updateCell:[subLabelARR objectAtIndex:indexPath.row] withImageName:urls[indexPath.row]];
         }
         else if ([subLabelARR[indexPath.row] isKindOfClass:[NSError class]]) {
             NSError *error = subLabelARR[indexPath.row];
-            cell.siteResponse.text = [NSString stringWithFormat:@"%ld",(long)error.code];
+            [cell updateCellWithError:cell.siteResponse.text = [NSString stringWithFormat:@"%ld",(long)error.code]];
         }
     }
     return cell;
